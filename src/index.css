@@ -1,0 +1,190 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Roboto,Helvetica Neue,sans-serif";
+}
+
+.menu-item:hover {
+  cursor: pointer;
+  background-color: rgb(0, 0, 0, 0.1);
+}
+
+.css-4nmryk-MuiBackdrop-root-MuiModal-backdrop {
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+
+.divider {
+  display: block;
+  margin: 0;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: rgba(0, 0, 0, 0.12);
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.css-cyqh1t-MuiPaper-root-MuiDrawer-paper {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.css-1krrxmk {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+  border-radius: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 8px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 8px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  border-radius: 8px;
+}
+
+/* Plan walls */
+.shed-plain-walls {
+  display: grid;
+  place-items: center;
+  grid-template-columns: 1f 1fr 1f;
+  grid-auto-flow: row;
+}
+
+.shed-plain-walls .front {
+  grid-column: 2;
+  min-height: 50px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.shed-plain-walls .left {
+  grid-column: 1;
+  place-self: center;
+  grid-row: 1 / 100;
+}
+
+.shed-plain-walls .right {
+  grid-column: 3;
+  place-self: center;
+  grid-row: 1 / 100;
+}
+
+.shed-plain-walls .back {
+  grid-column: 2;
+  min-height: 50px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.shed-plain-walls .bay {
+  display: grid;
+  grid-column: 2;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: auto 1fr auto;
+  width: 80px;
+}
+
+.shed-plain-walls .bay .top-center {
+  grid-column: 2;
+  grid-row: 1;
+  height: 15px;
+}
+
+.shed-plain-walls .bay .middle-left {
+  grid-column: 1;
+  grid-row: 2;
+  height: 60px;
+  width: 15px;
+}
+
+.shed-plain-walls .bay .middle-right {
+  grid-column: 3;
+  grid-row: 2;
+  height: 60px;
+  width: 15px;
+}
+
+.shed-plain-walls .bay .center-center {
+  grid-column: 2;
+  grid-row: 2;
+  height: 40px;
+  width: 40px;
+  align-self: center;
+  justify-self: center;
+}
+
+.shed-plain-walls .bay .bottom-center {
+  grid-column: 2;
+  grid-row: 3;
+  height: 15px;
+}
+
+.wall-btn {
+  border-radius: 5px;
+  border-width: 0px;
+  border-style: solid;
+  border-color: #004483;
+  background-color: #004483;
+}
+
+.wall-btn:active {
+  border-color: #5a5b5c;
+  background-color: #5c5c5c;
+}
+
+.wall-check {
+  grid-column: 5;
+  grid-row: 2;
+  margin-left: 3px;
+  align-self: center;
+}
+
+/* ---------- */
+
+#dropdown-btn {
+  font-size: 0.7rem;
+  font-family: "Roboto,Helvetica Neue,sans-serif" !important;
+  text-transform: none !important;
+}
+
+.css-13d8jh-MuiButtonBase-root-MuiMenuItem-root {
+}
+
+.css-1tktgsa-MuiPaper-root-MuiPopover-paper-MuiMenu-paper {
+}
+
+.css-1pht7va-MuiInputBase-root-MuiFilledInput-root {
+  font-size: 0.8rem !important;
+}
+
+.css-1ibw7c0-MuiPaper-root-MuiCard-root {
+  background-color: #f6f6f6 !important;
+}
+
+.css-1lt5qva-MuiCardContent-root:last-child {
+  padding-bottom: 60px !important;
+}
+
+.css-1lt5qva-MuiCardContent-root {
+  padding: 0px !important;
+}
+ 
+#card-body:hover {
+  box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12) !important;
+  zoom: 1.02;
+}
