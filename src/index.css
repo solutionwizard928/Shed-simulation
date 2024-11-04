@@ -188,3 +188,10 @@ body {
   box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12) !important;
   zoom: 1.02;
 }
+
+.css-1ll44ll-MuiOutlinedInput-notchedOutline {
+  border-width: 0px !important;
+  border-bottom-width : 1px !important;
+}
+
+
