@@ -189,9 +189,10 @@ body {
   zoom: 1.02;
 }
 
-.css-1ll44ll-MuiOutlinedInput-notchedOutline {
+.demo-simple-select1 fieldset.MuiOutlinedInput-notchedOutline.css-5v2ak0 {
   border-width: 0px !important;
   border-bottom-width : 1px !important;
+  border-radius: 0px !important;
 }
 
 

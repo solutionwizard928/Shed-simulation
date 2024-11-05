@@ -4,13 +4,20 @@ import Drawer from "@mui/material/Drawer";
 import CloseIcon from "@mui/icons-material/Close";
 import TextField from "@mui/material/TextField";
 import Slider from "@mui/material/Slider";
-
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
 
 function valuetext(value) {
   return `${value}m`;
 }
 
 export default function Structure({ toggleState, onClick }) {
+  const [footingState, setFootingState] = React.useState("circle");
+
+  const handleFooting = (event) => {
+    setFootingState(event.target.value);
+  };
+
   return (
     <Drawer open={toggleState} onClose={() => onClick(false)}>
       <Box
@@ -58,7 +65,26 @@ export default function Structure({ toggleState, onClick }) {
             >
               Footings
             </label>
-
+            <div style={{ marginTop: "30px", marginBottom : "40px" }}>
+              <TextField
+                labelId="demo-simple-select-label"
+                id="footing_selection"
+                value={footingState}
+                select
+                label="Footing option"
+                onChange={handleFooting}
+                fullWidth
+                variant="filled"
+                slotProps={{
+                  select: {
+                    native: true,
+                  },
+                }}
+              >
+                <option value="circle">Circle</option>
+                <option value="square">Square</option>
+              </TextField>
+            </div>
             <div
               style={{
                 display: "flex",

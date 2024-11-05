@@ -3,12 +3,11 @@ import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import Button from "@mui/material/Button";
 import CloseIcon from "@mui/icons-material/Close";
-import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
 import Switch from "@mui/material/Switch";
 
 import Select from "@mui/material/Select";
-import NativeSelect from "@mui/material/NativeSelect";
+import ColorSelector from "./ColorSelector";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -23,8 +22,10 @@ const MenuProps = {
 };
 
 export default function ColoursAndStyle({ toggleState, onClick }) {
-  const [color, setColor] = React.useState("");
-  const [roof, setRoof] = React.useState("");
+  const [color, setColor] = React.useState("Zinc");
+  const [roof, setRoof] = React.useState("Trimdek");
+  const [external_wall, setExternalWall] = React.useState("Trimdek");
+  const [internal_wall, setInternalWall] = React.useState("Trimdek");
   const [advancedOptions, setAdvancedOptions] = React.useState(false);
 
   const handleColorChange = (event) => {
@@ -33,6 +34,14 @@ export default function ColoursAndStyle({ toggleState, onClick }) {
 
   const handleRoof = (event) => {
     setRoof(event.target.value);
+  };
+
+  const handleExternalWall = (event) => {
+    setExternalWall(event.target.value);
+  };
+
+  const handleInternalWall = (event) => {
+    setInternalWall(event.target.value);
   };
 
   const handleAdvancedOptions = (event) => {
@@ -78,547 +87,7 @@ export default function ColoursAndStyle({ toggleState, onClick }) {
           {!advancedOptions ? (
             <div>
               <div>
-                <TextField
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  value={color}
-                  select
-                  label=""
-                  onChange={handleColorChange}
-                  style={{ width: "100%", marginTop: "40px", border : "none" }}
-                  MenuProps={MenuProps}
-                >
-                  <TextField
-                    id="filled-search"
-                    label="Search field"
-                    type="search"
-                    variant="filled"
-                    style={{ width: "100%" }}
-                    onChange={handleSearch}
-                  />
-                  <MenuItem
-                    value={"Basalt"}
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "flex-start",
-                    }}
-                  >
-                    <div>
-                      <label>Basalt</label>
-                    </div>
-                    <div
-                      style={{
-                        width: "100%",
-                        height: "30px",
-                        backgroundColor: "#656668",
-                        borderRadius: "7px",
-                      }}
-                    ></div>
-                  </MenuItem>
-                  <MenuItem
-                    value="Bluegum"
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "flex-start",
-                    }}
-                  >
-                    <div>
-                      <label>Bluegum</label>
-                    </div>
-                    <div
-                      style={{
-                        width: "100%",
-                        height: "30px",
-                        backgroundColor: "#969799",
-                        borderRadius: "7px",
-                      }}
-                    ></div>
-                  </MenuItem>
-                  <MenuItem
-                    value="Bluegum_Matt_Finish"
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "flex-start",
-                    }}
-                  >
-                    <div>
-                      <label>Bluegum Matt finish</label>
-                    </div>
-                    <div
-                      style={{
-                        width: "100%",
-                        height: "30px",
-                        backgroundColor: "#969b9b",
-                        borderRadius: "7px",
-                      }}
-                    ></div>
-                  </MenuItem>
-
-                  <MenuItem
-                    value="Classic_Cream"
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "flex-start",
-                    }}
-                  >
-                    <div>
-                      <label>Classic Cream</label>
-                    </div>
-                    <div
-                      style={{
-                        width: "100%",
-                        height: "30px",
-                        backgroundColor: "#e7d4b0",
-                        borderRadius: "7px",
-                      }}
-                    ></div>
-                  </MenuItem>
-
-                  <MenuItem
-                    value="Cottage_Green"
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "flex-start",
-                    }}
-                  >
-                    <div>
-                      <label>Cottage Green</label>
-                    </div>
-                    <div
-                      style={{
-                        width: "100%",
-                        height: "30px",
-                        backgroundColor: "#0e4a39",
-                        borderRadius: "7px",
-                      }}
-                    ></div>
-                  </MenuItem>
-
-                  <MenuItem
-                    value="Deep_Ocean"
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "flex-start",
-                    }}
-                  >
-                    <div>
-                      <label>Cottage Green</label>
-                    </div>
-                    <div
-                      style={{
-                        width: "100%",
-                        height: "30px",
-                        backgroundColor: "#273c4f",
-                        borderRadius: "7px",
-                      }}
-                    ></div>
-                  </MenuItem>
-
-                  <MenuItem
-                    value="Dover_White"
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "flex-start",
-                    }}
-                  >
-                    <div>
-                      <label>Dover White</label>
-                    </div>
-                    <div
-                      style={{
-                        width: "100%",
-                        height: "30px",
-                        backgroundColor: "#f9fbf1",
-                        borderRadius: "7px",
-                      }}
-                    ></div>
-                  </MenuItem>
-
-                  <MenuItem
-                    value="Dune"
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "flex-start",
-                    }}
-                  >
-                    <div>
-                      <label>Dune</label>
-                    </div>
-                    <div
-                      style={{
-                        width: "100%",
-                        height: "30px",
-                        backgroundColor: "#a8a59c",
-                        borderRadius: "7px",
-                      }}
-                    ></div>
-                  </MenuItem>
-
-                  <MenuItem
-                    value="Evening Haze"
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "flex-start",
-                    }}
-                  >
-                    <div>
-                      <label>Evening Haze</label>
-                    </div>
-                    <div
-                      style={{
-                        width: "100%",
-                        height: "30px",
-                        backgroundColor: "#bfb9a1",
-                        borderRadius: "7px",
-                      }}
-                    ></div>
-                  </MenuItem>
-
-                  <MenuItem
-                    value="Gully"
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "flex-start",
-                    }}
-                  >
-                    <div>
-                      <label>Gully</label>
-                    </div>
-                    <div
-                      style={{
-                        width: "100%",
-                        height: "30px",
-                        backgroundColor: "#7f776e",
-                        borderRadius: "7px",
-                      }}
-                    ></div>
-                  </MenuItem>
-
-                  <MenuItem
-                    value="Gully"
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "flex-start",
-                    }}
-                  >
-                    <div>
-                      <label>Ironstone</label>
-                    </div>
-                    <div
-                      style={{
-                        width: "100%",
-                        height: "30px",
-                        backgroundColor: "#343e4c",
-                        borderRadius: "7px",
-                      }}
-                    ></div>
-                  </MenuItem>
-
-                  <MenuItem
-                    value="Gully"
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "flex-start",
-                    }}
-                  >
-                    <div>
-                      <label>Jasper</label>
-                    </div>
-                    <div
-                      style={{
-                        width: "100%",
-                        height: "30px",
-                        backgroundColor: "#675d51",
-                        borderRadius: "7px",
-                      }}
-                    ></div>
-                  </MenuItem>
-
-                  <MenuItem
-                    value="Gully"
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "flex-start",
-                    }}
-                  >
-                    <div>
-                      <label>Manor Red</label>
-                    </div>
-                    <div
-                      style={{
-                        width: "100%",
-                        height: "30px",
-                        backgroundColor: "#65100f",
-                        borderRadius: "7px",
-                      }}
-                    ></div>
-                  </MenuItem>
-
-                  <MenuItem
-                    value="Gully"
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "flex-start",
-                    }}
-                  >
-                    <div>
-                      <label>Monument</label>
-                    </div>
-                    <div
-                      style={{
-                        width: "100%",
-                        height: "30px",
-                        backgroundColor: "#35363d",
-                        borderRadius: "7px",
-                      }}
-                    ></div>
-                  </MenuItem>
-
-                  <MenuItem
-                    value="Gully"
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "flex-start",
-                    }}
-                  >
-                    <div>
-                      <label>Night Sky</label>
-                    </div>
-                    <div
-                      style={{
-                        width: "100%",
-                        height: "30px",
-                        backgroundColor: "#2b2b2b",
-                        borderRadius: "7px",
-                      }}
-                    ></div>
-                  </MenuItem>
-
-                  <MenuItem
-                    value="Gully"
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "flex-start",
-                    }}
-                  >
-                    <div>
-                      <label>Pale Eucalypt</label>
-                    </div>
-                    <div
-                      style={{
-                        width: "100%",
-                        height: "30px",
-                        backgroundColor: "#74826b",
-                        borderRadius: "7px",
-                      }}
-                    ></div>
-                  </MenuItem>
-
-                  <MenuItem
-                    value="Gully"
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "flex-start",
-                    }}
-                  >
-                    <div>
-                      <label>Paperbark</label>
-                    </div>
-                    <div
-                      style={{
-                        width: "100%",
-                        height: "30px",
-                        backgroundColor: "#c6b69b",
-                        borderRadius: "7px",
-                      }}
-                    ></div>
-                  </MenuItem>
-
-                  <MenuItem
-                    value="Gully"
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "flex-start",
-                    }}
-                  >
-                    <div>
-                      <label>Shale Grey</label>
-                    </div>
-                    <div
-                      style={{
-                        width: "100%",
-                        height: "30px",
-                        backgroundColor: "#b1b6b1",
-                        borderRadius: "7px",
-                      }}
-                    ></div>
-                  </MenuItem>
-
-                  <MenuItem
-                    value="Gully"
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "flex-start",
-                    }}
-                  >
-                    <div>
-                      <label>Southerly</label>
-                    </div>
-                    <div
-                      style={{
-                        width: "100%",
-                        height: "30px",
-                        backgroundColor: "#d2d1cb",
-                        borderRadius: "7px",
-                      }}
-                    ></div>
-                  </MenuItem>
-
-                  <MenuItem
-                    value="Gully"
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "flex-start",
-                    }}
-                  >
-                    <div>
-                      <label>Surfmist</label>
-                    </div>
-                    <div
-                      style={{
-                        width: "100%",
-                        height: "30px",
-                        backgroundColor: "#dcdacc",
-                        borderRadius: "7px",
-                      }}
-                    ></div>
-                  </MenuItem>
-
-                  <MenuItem
-                    value="Gully"
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "flex-start",
-                    }}
-                  >
-                    <div>
-                      <label>Wallaby</label>
-                    </div>
-                    <div
-                      style={{
-                        width: "100%",
-                        height: "30px",
-                        backgroundColor: "#767572",
-                        borderRadius: "7px",
-                      }}
-                    ></div>
-                  </MenuItem>
-
-                  <MenuItem
-                    value="Gully"
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "flex-start",
-                    }}
-                  >
-                    <div>
-                      <label>Windspray</label>
-                    </div>
-                    <div
-                      style={{
-                        width: "100%",
-                        height: "30px",
-                        backgroundColor: "#7a8181",
-                        borderRadius: "7px",
-                      }}
-                    ></div>
-                  </MenuItem>
-
-                  <MenuItem
-                    value="Gully"
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "flex-start",
-                    }}
-                  >
-                    <div>
-                      <label>Wollemi</label>
-                    </div>
-                    <div
-                      style={{
-                        width: "100%",
-                        height: "30px",
-                        backgroundColor: "#0a1c0d",
-                        borderRadius: "7px",
-                      }}
-                    ></div>
-                  </MenuItem>
-
-                  <MenuItem
-                    value="Gully"
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "flex-start",
-                    }}
-                  >
-                    <div>
-                      <label>Woodland Grey</label>
-                    </div>
-                    <div
-                      style={{
-                        width: "100%",
-                        height: "30px",
-                        backgroundColor: "#464a44",
-                        borderRadius: "7px",
-                      }}
-                    ></div>
-                  </MenuItem>
-
-                  <MenuItem
-                    value="Gully"
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "flex-start",
-                    }}
-                  >
-                    <div>
-                      <label>Zinc</label>
-                    </div>
-                    <div
-                      style={{
-                        width: "100%",
-                        height: "30px",
-                        backgroundColor: "#efefef",
-                        borderRadius: "7px",
-                      }}
-                    ></div>
-                  </MenuItem>
-                </TextField>
+                <ColorSelector />
               </div>
               <div>
                 <div style={{ marginTop: "20px", marginBottom: "20px" }}>
@@ -665,29 +134,22 @@ export default function ColoursAndStyle({ toggleState, onClick }) {
                   color: "#004483",
                   fontWeight: "600",
                   marginTop: "20px",
-                  marginBottom: "10px",
                 }}
               >
                 Roof
               </label>
 
-              <div>
+              <div style={{ marginBottom: "30px" }}>
                 <Select
                   labelId="demo-simple-select-label"
                   id="demo-simple-select1"
+                  className="demo-simple-select1"
                   value={roof}
                   label="Corrugated"
-                  style={{ width: "100%", marginTop: "40px" }}
+                  style={{ width: "100%", marginTop: "10px" }}
                   MenuProps={MenuProps}
                   onChange={handleRoof}
                 >
-                  <TextField
-                    id="filled-search"
-                    label="Search field"
-                    type="search"
-                    variant="filled"
-                    style={{ width: "100%" }}
-                  />
                   <MenuItem
                     value={"Corrugated"}
                     style={{
@@ -696,17 +158,26 @@ export default function ColoursAndStyle({ toggleState, onClick }) {
                       alignItems: "flex-start",
                     }}
                   >
-                    <div>
+                    <div style={{ paddingBottom: "10px" }}>
                       <label>Corrugated</label>
                     </div>
-                    <div
-                      style={{
-                        width: "100%",
-                        height: "30px",
-                        backgroundColor: "#656668",
-                        borderRadius: "7px",
-                      }}
-                    ></div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="90pt"
+                      height="22.5pt"
+                    >
+                      <path
+                        id="shape0"
+                        transform="translate(0.281249980006078, -0.000336647387961381)"
+                        fill="none"
+                        stroke="#000000"
+                        stroke-width="0.75"
+                        stroke-linecap="square"
+                        stroke-linejoin="miter"
+                        stroke-miterlimit="2"
+                        d="M0 0.363618C3.72113 12.9933 6.03596 19.7444 6.9445 20.6169C8.3073 21.9257 12.6218 23.7831 15.6287 20.0203C17.6332 17.5117 20.2221 4.98984 21.5949 2.32053C22.9677 -0.348779 29.2555 -0.864461 31.0082 2.32053C32.7609 5.50552 35.1365 18.2733 37.0407 20.4843C38.9449 22.6953 45.5401 22.4762 46.7812 18.6566C48.0224 14.8369 49.6333 6.95351 52.0226 2.91715C54.4119 -1.1192 60.6487 -0.0707252 61.7674 4.24298C62.8861 8.55668 63.5048 14.2746 67.0707 19.49C70.6365 24.7053 76.3166 21.4203 77.2795 18.4956C78.2424 15.5709 79.4217 5.33385 82.5828 2.65199C84.6903 0.864076 87.0689 -0.0198075 89.7188 0.000336647"
+                      />
+                    </svg>
                   </MenuItem>
                   <MenuItem
                     value="Trimdek"
@@ -716,19 +187,364 @@ export default function ColoursAndStyle({ toggleState, onClick }) {
                       alignItems: "flex-start",
                     }}
                   >
-                    <div>
+                    <div style={{ paddingBottom: "10px" }}>
                       <label>Trimdek</label>
                     </div>
-                    <div
-                      style={{
-                        width: "100%",
-                        height: "30px",
-                        backgroundColor: "#969799",
-                        borderRadius: "7px",
-                      }}
-                    ></div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="90pt"
+                      height="22.5pt"
+                    >
+                      <defs />
+                      <path
+                        id="shape0"
+                        transform="translate(0, 0.339843748470468)"
+                        fill="none"
+                        stroke="#000000"
+                        stroke-width="1"
+                        stroke-linecap="round"
+                        d="M0 0.128906L7.55859 21.8086L15.3047 21.7852L22.875 0.046875L30.3633 0L22.9219 0.128906L15.3047 21.832L7.85156 21.8203Z"
+                      />
+                      <path
+                        id="shape0"
+                        transform="matrix(1.00000000128198 0 0 1.00000000128198 30.3873775096099 0.333999986005932)"
+                        fill="none"
+                        stroke="#000000"
+                        stroke-width="0.75"
+                        stroke-linecap="square"
+                        stroke-linejoin="bevel"
+                        d="M0 0.128906L7.55859 21.8086L15.3047 21.7852L22.875 0.046875L30.3633 0L22.9219 0.128906L15.3047 21.832L7.85156 21.8203Z"
+                      />
+                      <path
+                        id="shape01"
+                        transform="matrix(1.00000000128198 0 0 1.00000000128198 60.3767226049007 0.333999986005931)"
+                        fill="none"
+                        stroke="#000000"
+                        stroke-width="0.75"
+                        stroke-linecap="square"
+                        stroke-linejoin="bevel"
+                        d="M0 0.128906L7.55859 21.8086L15.3047 21.7852L22.875 0.046875L30.3633 0L22.9219 0.128906L15.3047 21.832L7.85156 21.8203Z"
+                      />
+                    </svg>
                   </MenuItem>
                 </Select>
+                <ColorSelector />
+              </div>
+
+              <label
+                style={{
+                  color: "#004483",
+                  fontWeight: "600",
+                }}
+              >
+                External Walls
+              </label>
+
+              <div style={{ marginBottom: "30px" }}>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select2"
+                  className="demo-simple-select1"
+                  value={external_wall}
+                  label="Corrugated"
+                  style={{ width: "100%", marginTop: "10px" }}
+                  MenuProps={MenuProps}
+                  onChange={handleExternalWall}
+                >
+                  <MenuItem
+                    value={"Corrugated"}
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                    }}
+                  >
+                    <div style={{ paddingBottom: "10px" }}>
+                      <label>Corrugated</label>
+                    </div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="90pt"
+                      height="22.5pt"
+                    >
+                      <path
+                        id="shape0"
+                        transform="translate(0.281249980006078, -0.000336647387961381)"
+                        fill="none"
+                        stroke="#000000"
+                        stroke-width="0.75"
+                        stroke-linecap="square"
+                        stroke-linejoin="miter"
+                        stroke-miterlimit="2"
+                        d="M0 0.363618C3.72113 12.9933 6.03596 19.7444 6.9445 20.6169C8.3073 21.9257 12.6218 23.7831 15.6287 20.0203C17.6332 17.5117 20.2221 4.98984 21.5949 2.32053C22.9677 -0.348779 29.2555 -0.864461 31.0082 2.32053C32.7609 5.50552 35.1365 18.2733 37.0407 20.4843C38.9449 22.6953 45.5401 22.4762 46.7812 18.6566C48.0224 14.8369 49.6333 6.95351 52.0226 2.91715C54.4119 -1.1192 60.6487 -0.0707252 61.7674 4.24298C62.8861 8.55668 63.5048 14.2746 67.0707 19.49C70.6365 24.7053 76.3166 21.4203 77.2795 18.4956C78.2424 15.5709 79.4217 5.33385 82.5828 2.65199C84.6903 0.864076 87.0689 -0.0198075 89.7188 0.000336647"
+                      />
+                    </svg>
+                  </MenuItem>
+                  <MenuItem
+                    value="Trimdek"
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                    }}
+                  >
+                    <div style={{ paddingBottom: "10px" }}>
+                      <label>Trimdek</label>
+                    </div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="90pt"
+                      height="22.5pt"
+                    >
+                      <defs />
+                      <path
+                        id="shape0"
+                        transform="translate(0, 0.339843748470468)"
+                        fill="none"
+                        stroke="#000000"
+                        stroke-width="1"
+                        stroke-linecap="round"
+                        d="M0 0.128906L7.55859 21.8086L15.3047 21.7852L22.875 0.046875L30.3633 0L22.9219 0.128906L15.3047 21.832L7.85156 21.8203Z"
+                      />
+                      <path
+                        id="shape0"
+                        transform="matrix(1.00000000128198 0 0 1.00000000128198 30.3873775096099 0.333999986005932)"
+                        fill="none"
+                        stroke="#000000"
+                        stroke-width="0.75"
+                        stroke-linecap="square"
+                        stroke-linejoin="bevel"
+                        d="M0 0.128906L7.55859 21.8086L15.3047 21.7852L22.875 0.046875L30.3633 0L22.9219 0.128906L15.3047 21.832L7.85156 21.8203Z"
+                      />
+                      <path
+                        id="shape01"
+                        transform="matrix(1.00000000128198 0 0 1.00000000128198 60.3767226049007 0.333999986005931)"
+                        fill="none"
+                        stroke="#000000"
+                        stroke-width="0.75"
+                        stroke-linecap="square"
+                        stroke-linejoin="bevel"
+                        d="M0 0.128906L7.55859 21.8086L15.3047 21.7852L22.875 0.046875L30.3633 0L22.9219 0.128906L15.3047 21.832L7.85156 21.8203Z"
+                      />
+                    </svg>
+                  </MenuItem>
+                </Select>
+                <ColorSelector />
+              </div>
+
+              <label
+                style={{
+                  color: "#004483",
+                  fontWeight: "600",
+                }}
+              >
+                Internal Walls
+              </label>
+
+              <div>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select3"
+                  className="demo-simple-select1"
+                  value={internal_wall}
+                  label="Corrugated"
+                  style={{ width: "100%", marginTop: "10px" }}
+                  MenuProps={MenuProps}
+                  onChange={handleInternalWall}
+                >
+                  <MenuItem
+                    value={"Corrugated"}
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                    }}
+                  >
+                    <div style={{ paddingBottom: "10px" }}>
+                      <label>Corrugated</label>
+                    </div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="90pt"
+                      height="22.5pt"
+                    >
+                      <path
+                        id="shape0"
+                        transform="translate(0.281249980006078, -0.000336647387961381)"
+                        fill="none"
+                        stroke="#000000"
+                        stroke-width="0.75"
+                        stroke-linecap="square"
+                        stroke-linejoin="miter"
+                        stroke-miterlimit="2"
+                        d="M0 0.363618C3.72113 12.9933 6.03596 19.7444 6.9445 20.6169C8.3073 21.9257 12.6218 23.7831 15.6287 20.0203C17.6332 17.5117 20.2221 4.98984 21.5949 2.32053C22.9677 -0.348779 29.2555 -0.864461 31.0082 2.32053C32.7609 5.50552 35.1365 18.2733 37.0407 20.4843C38.9449 22.6953 45.5401 22.4762 46.7812 18.6566C48.0224 14.8369 49.6333 6.95351 52.0226 2.91715C54.4119 -1.1192 60.6487 -0.0707252 61.7674 4.24298C62.8861 8.55668 63.5048 14.2746 67.0707 19.49C70.6365 24.7053 76.3166 21.4203 77.2795 18.4956C78.2424 15.5709 79.4217 5.33385 82.5828 2.65199C84.6903 0.864076 87.0689 -0.0198075 89.7188 0.000336647"
+                      />
+                    </svg>
+                  </MenuItem>
+                  <MenuItem
+                    value="Trimdek"
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                    }}
+                  >
+                    <div style={{ paddingBottom: "10px" }}>
+                      <label>Trimdek</label>
+                    </div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="90pt"
+                      height="22.5pt"
+                    >
+                      <defs />
+                      <path
+                        id="shape0"
+                        transform="translate(0, 0.339843748470468)"
+                        fill="none"
+                        stroke="#000000"
+                        stroke-width="1"
+                        stroke-linecap="round"
+                        d="M0 0.128906L7.55859 21.8086L15.3047 21.7852L22.875 0.046875L30.3633 0L22.9219 0.128906L15.3047 21.832L7.85156 21.8203Z"
+                      />
+                      <path
+                        id="shape0"
+                        transform="matrix(1.00000000128198 0 0 1.00000000128198 30.3873775096099 0.333999986005932)"
+                        fill="none"
+                        stroke="#000000"
+                        stroke-width="0.75"
+                        stroke-linecap="square"
+                        stroke-linejoin="bevel"
+                        d="M0 0.128906L7.55859 21.8086L15.3047 21.7852L22.875 0.046875L30.3633 0L22.9219 0.128906L15.3047 21.832L7.85156 21.8203Z"
+                      />
+                      <path
+                        id="shape01"
+                        transform="matrix(1.00000000128198 0 0 1.00000000128198 60.3767226049007 0.333999986005931)"
+                        fill="none"
+                        stroke="#000000"
+                        stroke-width="0.75"
+                        stroke-linecap="square"
+                        stroke-linejoin="bevel"
+                        d="M0 0.128906L7.55859 21.8086L15.3047 21.7852L22.875 0.046875L30.3633 0L22.9219 0.128906L15.3047 21.832L7.85156 21.8203Z"
+                      />
+                    </svg>
+                  </MenuItem>
+                </Select>
+                <ColorSelector />
+              </div>
+
+              <div
+                className="divider"
+                style={{ marginTop: "40px", marginBottom: "20px" }}
+              ></div>
+
+              <label
+                style={{
+                  color: "#004483",
+                  fontWeight: "600",
+                }}
+              >
+                Personal Access Doors
+              </label>
+
+              <div style={{ marginBottom: "20px" }}>
+                <ColorSelector />
+              </div>
+
+              <label
+                style={{
+                  color: "#004483",
+                  fontWeight: "600",
+                }}
+              >
+                Roller Doors
+              </label>
+
+              <div style={{ marginBottom: "20px" }}>
+                <ColorSelector />
+              </div>
+
+              <label
+                style={{
+                  color: "#004483",
+                  fontWeight: "600",
+                }}
+              >
+                Sliding Doors
+              </label>
+
+              <div style={{ marginBottom: "20px" }}>
+                <ColorSelector />
+              </div>
+
+              <label
+                style={{
+                  color: "#004483",
+                  fontWeight: "600",
+                }}
+              >
+                Whirlybirds / Spin Aways
+              </label>
+
+              <div style={{ marginBottom: "20px" }}>
+                <ColorSelector />
+              </div>
+
+              <div
+                className="divider"
+                style={{ marginTop: "40px", marginBottom: "20px" }}
+              ></div>
+
+              <label
+                style={{
+                  color: "#004483",
+                  fontWeight: "600",
+                }}
+              >
+                Gutters
+              </label>
+
+              <div style={{ marginBottom: "20px" }}>
+                <ColorSelector />
+              </div>
+
+              <label
+                style={{
+                  color: "#004483",
+                  fontWeight: "600",
+                }}
+              >
+                Ridge Cap
+              </label>
+
+              <div style={{ marginBottom: "20px" }}>
+                <ColorSelector />
+              </div>
+
+              <label
+                style={{
+                  color: "#004483",
+                  fontWeight: "600",
+                }}
+              >
+                Barge Trim
+              </label>
+
+              <div style={{ marginBottom: "20px" }}>
+                <ColorSelector />
+              </div>
+
+              <label
+                style={{
+                  color: "#004483",
+                  fontWeight: "600",
+                }}
+              >
+                Wall Corner
+              </label>
+
+              <div style={{ marginBottom: "20px" }}>
+                <ColorSelector />
               </div>
             </div>
           )}
